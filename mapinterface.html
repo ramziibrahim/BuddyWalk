@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCU Campus Map</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #851a27;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 35px 10px 12px;
+            box-sizing: border-box;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 23px;
+        }
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+        .logo-text {
+            font-size: 36px;
+            font-weight: 600;
+            letter-spacing: 0.36px;
+            color: #ffffff;
+        }
+        .contact-info {
+            text-align: right;
+            color: #ffffff;
+        }
+        .contact-info div {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.15px;
+        }
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .map-container {
+            width: 90%;
+            max-width: 800px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+        .map-container img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+        }
+        .navigation-bar {
+            background-color: #851a27;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .nav-item img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="BuddyWalk Logo" class="logo">
+                <div class="logo-text">BUDDY<span class="bold-yellow">WALK</span></div>
+            </div>
+            <div class="contact-info">
+                <div>SCU Campus Safety</div>
+                <div>(408) 554-4444</div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <h1>SCU Campus Map</h1>
+            <div class="map-container">
+                <img src="{{ url_for('static', filename='scumap.png') }}" alt="SCU Map">
+            </div>
+        </main>
+
+        <nav class="navigation-bar">
+            <a href="{{ url_for('map_view') }}" class="nav-item">SCU Map</a>
+            <a href="{{ url_for('home') }}" class="nav-item">Host</a>
+            <a href="{{ url_for('list_walks') }}" class="nav-item">Join</a>
+            <a href="{{ url_for('signout') }}" class="nav-item">Sign Out</a>
+        </nav>
+    </div>
+</body>
+</html>
